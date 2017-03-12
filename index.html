@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html lang="es" class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html lang="es" class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html lang="es" class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="es">
+<!--<![endif]-->
+
+<head>
+    <meta http-equiv="content-type" content="text/html; utf-8">
+    <meta name="language" content="Spanish">
+    <meta name="content-language" content="es">
+    <meta name="robots" content="all">
+    <meta name="Keywords" content="ie, version, jquery, ponyo" />
+    <meta http-equiv="X-UA-Compatible" content="IE=IE9">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/ponyo.ico">
+    <title>Test version IE - Jquery</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.22.1/css/patternfly.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.22.1/css/patternfly-additions.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.22.1/js/patternfly.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/comun.js"></script>
+</head>
+
+<body>
+    <!-- Cabecera - Menu -->
+    <nav class="navbar navbar-default navbar-pf" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-1">
+            <span class="sr-only">Menu</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <a class="navbar-brand" href="index.html">
+                <h1>Test version IE - Jquery</h1>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-primary">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                Proximamente... <b class="caret"></b>
+              </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="index.html">Proximamente...</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <br/><br/>
+        <div class="row">
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+            <div id="mensajes" class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10"></div>
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+            <div id="cargando" class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10"></div>
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+        </div>
+        <br/>
+        <div class="blank-slate-pf">
+            <div class="blank-slate-pf-icon" id="iconoEvaluacion">
+                <span class="pficon pficon pficon-cloud-tenant"></span>
+            </div>
+            <h1 id="mensajeVersion">
+                [ Esto se actualizara con el resultado de la evaluacion ]
+            </h1>
+            <p>
+                Visite otros proyectos:
+            </p>
+            <p>
+                Github: <a href="https://github.com/silverfox78/">SilverFox78</a>.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            var resultado = Evaluacion.EsAntiguIE();
+
+            if (resultado) {
+                $("#iconoEvaluacion").html("<span class='pficon pficon pficon-error-circle-o'></span>");
+                $("#mensajeVersion").html("Su version de navegador es previa a IE 9 - verifique el modo de compatibilidad.");
+                Error.Alerta("Su version de navegador es previa a IE 9 - verifique el modo de compatibilidad.", "Cambia el navegador por el amor de Yisus", true);
+            } else {
+                $("#iconoEvaluacion").html("<span class='pficon pficon pficon-ok'></span>");
+                $("#mensajeVersion").html("Su version de navgador es apropiada XD");
+                Mensajeria.Exito("Su version de navgador es apropiada XD");
+            }
+        });
+    </script>
+</body>
+
+</html>

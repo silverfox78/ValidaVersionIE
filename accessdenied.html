@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html lang="es" class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html lang="es" class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html lang="es" class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="es">
+<!--<![endif]-->
+    <head>
+        <meta http-equiv="content-type" content="text/html; utf-8">
+        <meta name="language" content="Spanish">
+        <meta name="content-language" content="es">
+        <meta name="robots" content="all">
+        <meta name="Keywords" content="ie, version, jquery, ponyo" />
+        <meta http-equiv="X-UA-Compatible" content="IE=IE9">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="img/ponyo.ico">
+        <title>Test version IE - Jquery</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.22.1/css/patternfly.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.22.1/css/patternfly-additions.min.css">
+        <!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.22.1/js/patternfly.min.js"></script>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <br/><br/>
+            <div class="blank-slate-pf">
+                <div class="blank-slate-pf-icon">
+                    <span class="pficon pficon-error-circle-o"></span>
+                </div>
+        
+                <h1>Ha ocurrido un inconveniente</h1>
+                <br /><br /><br />
+                <h3 id="mensaje"></h3>
+                <br /><br /><br />
+                <br /><br /><br />
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            function getParameterByName(name, url) {
+                if (!url) {
+                    url = window.location.href;
+                }
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+
+            $(document).ready(function () {
+                var texto = Base64.decode(getParameterByName('mensaje'));
+                $('#mensaje').html(texto);
+            });
+        </script>
+    </body>
+</html>
+
